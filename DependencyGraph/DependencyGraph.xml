@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DependencyGraph</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "T:SpreadsheetUtilities.DependencyGraph" -->
+        <member name="M:SpreadsheetUtilities.DependencyGraph.#ctor">
+            <summary>
+            Creates an empty DependencyGraph.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetUtilities.DependencyGraph.Size">
+            <summary>
+            The number of ordered pairs in the DependencyGraph.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetUtilities.DependencyGraph.Item(System.String)">
+            <summary>
+            The size of dependees(s).
+            This property is an example of an indexer.  If dg is a DependencyGraph, you would
+            invoke it like this:
+            dg["a"]
+            It should return the size of dependees("a")
+            <return>the size of dependees, if the passed in element is null or does not exist in the graph, then it will return -1</return>
+            </summary>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.HasDependents(System.String)">
+            <summary>
+            Reports whether dependents(s) is non-empty.
+            If the argument is null or does not exist in the graph, return false automatically
+            If the argument is not null and exist in the graph, return false if dependents list is empty, return true if is not empty. 
+            </summary>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.HasDependees(System.String)">
+            <summary>
+            Reports whether dependees(s) is non-empty.    
+            If the argument is null or does not exist in the graph, return false automatically
+            If the argument is not null and exist in the graph, return false if dependees list is empty, return true if dependees list is not empty. 
+            </summary>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.GetDependents(System.String)">
+            <summary>
+            Enumerates dependents(s).
+            If the argument is not null and exist in the graph, return dependent list 
+            If the argument is null or does not exist in the graph, return empty list automatically
+            </summary>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.GetDependees(System.String)">
+            <summary>
+            Enumerates dependees(s).
+            If the argument is not null and exist in the graph, return dependee list
+            If the argument is null or does not exist in the graph, return empty list automatically
+            </summary>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.AddDependency(System.String,System.String)">
+             <summary>
+             <para>Adds the ordered pair (s,t), if it doesn't exist</para>
+             <para>Do nothing if value is null </para>
+             <para>Do nothing if relationship already exist</para>
+             <param name="s"> s must be evaluated first. T depends on S</param>
+             <param name="t"> t cannot be evaluated until s is</param>   
+             <para>This should be thought of as:</para>   
+             
+               t depends on s
+            
+             </summary>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.RemoveDependency(System.String,System.String)">
+            <summary>
+            Removes the ordered pair (s,t), if it exists
+            Do nothing if dependency does not exist or arguments are null
+            </summary>
+            <param name="s"></param>
+            <param name="t"></param>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.ReplaceDependents(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Removes all existing ordered pairs of the form (s,r).  Then, for each
+            t in newDependents, adds the ordered pair (s,t).
+            Do nothing if arguments are null or the first argument does not exist in the graph
+            </summary>
+        </member>
+        <member name="M:SpreadsheetUtilities.DependencyGraph.ReplaceDependees(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Removes all existing ordered pairs of the form (r,s).  Then, for each 
+            t in newDependees, adds the ordered pair (t,s).
+            Do nothing if arguments are null or the first argument does not exist in the graph
+            </summary>
+        </member>
+    </members>
+</doc>
